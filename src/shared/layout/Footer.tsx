@@ -26,7 +26,9 @@ export function Footer() {
 
           <div className="mt-6 flex gap-3">
             <a
-              href="#"
+              href="https://www.facebook.com/profile.php?id=61577213166008"
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex h-10 w-10 items-center justify-center rounded-full bg-azul-50 text-azul-800 transition-colors hover:bg-institucional-500 hover:text-white"
             >
               <svg

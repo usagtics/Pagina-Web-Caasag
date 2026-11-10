@@ -17,7 +17,7 @@ const slides = [
     imagen: "/asamblea1.jpeg",
     posicion: "object-[20%_25%]",
     boton1: "Conócenos",
-    link1: "/sobre-nosotros",
+    link1: "/nosotros",
     boton2: "Contactar",
     link2: "/contacto",
   },

@@ -1,19 +1,15 @@
-import { EventosDetalle, CINTA } from "@/features";
+import { EventosDetalle } from "@/features/components/home/EventosDetalle";
 
 export const metadata = {
   title: "Eventos y Asambleas | CAASAG",
   description:
-    "Conoce el detalle de nuestras asambleas, congresos y eventos de vinculación.",
+    "Nuestra historia en acción. Conoce los eventos, asambleas y vinculaciones del Colegiado.",
 };
 
 export default function EventosPage() {
   return (
-    <>
-      {/* Aquí podrías poner un Hero pequeño si quisieras, o solo el componente */}
+    <main className="bg-azul-950 min-h-screen">
       <EventosDetalle />
-
-      {/* Reutilizamos la cinta de la home para cerrar la página */}
-      <CINTA />
-    </>
+    </main>
   );
 }

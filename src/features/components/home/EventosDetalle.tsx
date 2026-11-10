@@ -1,52 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
-
-const eventos = [
-  {
-    fecha: "23 Mayo, 2025",
-    categoria: "Congreso",
-    titulo: "Congreso Internacional de Universidades",
-    descripcion:
-      "El Congreso Internacional de Universidades CAASAG 2026 fue una realidad y recibimos un evento que reunió innovación, conocimiento y talento académico en un solo lugar.",
-    imagen: "/congreso-universidades.jpeg",
-  },
-  {
-    fecha: "20-21 Junio, 2025",
-    categoria: "Asamblea",
-    titulo: "Primera Asamblea Ordinaria CAASAG",
-    descripcion:
-      "Se aprobaron por unanimidad los nuevos estatutos de colaboración y se presentó el plan estratégico para el siguiente año.",
-    imagen: "/evento-asamblea1.jpg",
-  },
-  {
-    fecha: "22 Mayo, 2025",
-    categoria: "2 Asamblea",
-    titulo: "Segunda Asamblea Ordinaria CAASAG",
-    descripcion:
-      "Realizamos un recorrido con directores de instituciones educativas por las instalaciones de Bosch.",
-    imagen: "/carrousel1.jpeg",
-  },
-  {
-    fecha: "24 Sep, 2024",
-    categoria: "Vinculación",
-    titulo: "Visita a la Planta de Bosch",
-    descripcion:
-      "Realizamos un recorrido con directores de instituciones educativas por las instalaciones de Bosch.",
-    imagen: "/carrousel1.jpeg",
-  },
-  {
-    fecha: "05 Sep, 2024",
-    categoria: "Prensa",
-    titulo: "Rueda de Prensa: Nuevas Alianzas",
-    descripcion:
-      "Anunciamos oficialmente la integración de 5 nuevas universidades a nuestra red académica.",
-    imagen: "/nosotros4.jpg",
-  },
-];
+import { eventos } from "@/data/eventos";
 
 export function EventosDetalle() {
   return (
-    <section className="relative w-full overflow-hidden bg-azul-950 py-24 sm:py-32">
+    <section
+      id="eventos"
+      className="relative w-full overflow-hidden bg-azul-950 py-24 sm:py-32"
+    >
       <div className="absolute top-0 right-1/4 h-[600px] w-[800px] -translate-y-1/2 rounded-full bg-institucional-500/10 blur-[120px] pointer-events-none"></div>
 
       <div className="relative z-10 mx-auto max-w-[1600px] px-4 sm:px-8">
@@ -71,7 +32,7 @@ export function EventosDetalle() {
 
             return (
               <article
-                key={index}
+                key={evento.slug}
                 className={`group relative flex flex-col justify-end overflow-hidden rounded-[2rem] bg-neutral-900 shadow-2xl transition-all duration-500 hover:-translate-y-2 ${
                   isLarge
                     ? "lg:col-span-7 h-[450px] sm:h-[550px]"
@@ -119,7 +80,7 @@ export function EventosDetalle() {
                   </p>
 
                   <Link
-                    href="#"
+                    href={`/eventos/${evento.slug}`}
                     className="group/btn inline-flex w-fit items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-xs font-bold text-white backdrop-blur-md transition-all hover:bg-institucional-500 hover:shadow-lg sm:px-5 sm:py-2.5 sm:text-sm"
                   >
                     Leer más

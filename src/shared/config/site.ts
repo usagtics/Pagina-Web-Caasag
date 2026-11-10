@@ -25,7 +25,7 @@ export const siteConfig = {
   ],
 
   contact: {
-    address: "Guanajuato, México",
+    address: "Puerto de Cartagena 402, Arbide, 37360 León de los Aldama, Gto.",
     email: "contacto@caasag.mx",
     phone: "",
   },
