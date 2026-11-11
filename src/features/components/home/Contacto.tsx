@@ -1,16 +1,14 @@
 "use client";
 
-import { useState } from "react";
+import { useActionState } from "react";
+import { sendContactEmail } from "@/actions/send-email";
 import { siteConfig } from "@/shared/config/site";
 
 export function Contacto() {
-  const [enviado, setEnviado] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setEnviado(true);
-    setTimeout(() => setEnviado(false), 5000);
-  };
+  const [state, formAction, isPending] = useActionState(sendContactEmail, {
+    success: false,
+    error: null,
+  });
 
   return (
     <section className="relative min-h-screen w-full bg-azul-950 pt-32 pb-24 overflow-hidden">
@@ -21,9 +19,7 @@ export function Contacto() {
           66% { transform: translate(-20px, 20px) scale(0.9); }
           100% { transform: translate(0px, 0px) scale(1); }
         }
-        .animate-blob {
-          animation: blob 10s infinite;
-        }
+        .animate-blob { animation: blob 10s infinite; }
         .animation-delay-2000 { animation-delay: 2s; }
         .animation-delay-4000 { animation-delay: 4s; }
       `}</style>
@@ -108,8 +104,8 @@ export function Contacto() {
           </div>
 
           <div className="rounded-[2rem] border border-white/10 bg-white/5 p-6 shadow-2xl backdrop-blur-xl sm:p-10">
-            {enviado ? (
-              <div className="flex h-full flex-col items-center justify-center text-center py-12">
+            {state.success ? (
+              <div className="flex h-full min-h-[400px] flex-col items-center justify-center text-center">
                 <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-institucional-500/20 text-institucional-400">
                   <svg
                     className="h-10 w-10"
@@ -134,12 +130,13 @@ export function Contacto() {
                 </p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form action={formAction} className="space-y-6">
                 <div>
                   <label className="mb-2 block text-xs font-bold uppercase tracking-widest text-azul-200">
                     Nombre completo
                   </label>
                   <input
+                    name="nombre"
                     required
                     type="text"
                     className="w-full rounded-xl border border-white/10 bg-azul-950/50 px-4 py-3 text-white placeholder-gray-500 focus:border-institucional-500 focus:outline-none focus:ring-1 focus:ring-institucional-500 transition-all"
@@ -152,6 +149,7 @@ export function Contacto() {
                     Correo electrónico
                   </label>
                   <input
+                    name="email"
                     required
                     type="email"
                     className="w-full rounded-xl border border-white/10 bg-azul-950/50 px-4 py-3 text-white placeholder-gray-500 focus:border-institucional-500 focus:outline-none focus:ring-1 focus:ring-institucional-500 transition-all"
@@ -164,6 +162,7 @@ export function Contacto() {
                     Asunto
                   </label>
                   <input
+                    name="asunto"
                     required
                     type="text"
                     className="w-full rounded-xl border border-white/10 bg-azul-950/50 px-4 py-3 text-white placeholder-gray-500 focus:border-institucional-500 focus:outline-none focus:ring-1 focus:ring-institucional-500 transition-all"
@@ -176,6 +175,7 @@ export function Contacto() {
                     Mensaje
                   </label>
                   <textarea
+                    name="mensaje"
                     required
                     rows={4}
                     className="w-full rounded-xl border border-white/10 bg-azul-950/50 px-4 py-3 text-white placeholder-gray-500 focus:border-institucional-500 focus:outline-none focus:ring-1 focus:ring-institucional-500 transition-all resize-none"
@@ -183,11 +183,18 @@ export function Contacto() {
                   ></textarea>
                 </div>
 
+                {state.error && (
+                  <p className="text-red-400 text-sm font-semibold bg-red-500/10 p-3 rounded-lg">
+                    {state.error}
+                  </p>
+                )}
+
                 <button
                   type="submit"
-                  className="w-full rounded-xl bg-institucional-500 px-6 py-4 text-sm font-black uppercase tracking-widest text-white shadow-[0_0_20px_rgba(34,197,94,0.3)] transition-all hover:-translate-y-1 hover:bg-institucional-400 hover:shadow-[0_0_30px_rgba(34,197,94,0.5)]"
+                  disabled={isPending}
+                  className="w-full rounded-xl bg-institucional-500 px-6 py-4 text-sm font-black uppercase tracking-widest text-white shadow-[0_0_20px_rgba(34,197,94,0.3)] transition-all hover:-translate-y-1 hover:bg-institucional-400 hover:shadow-[0_0_30px_rgba(34,197,94,0.5)] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0"
                 >
-                  Enviar Mensaje
+                  {isPending ? "Enviando..." : "Enviar Mensaje"}
                 </button>
               </form>
             )}

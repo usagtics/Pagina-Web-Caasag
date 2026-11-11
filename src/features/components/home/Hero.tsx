@@ -33,8 +33,7 @@ const slides = [
       "Descubre nuestra oferta educativa y únete a una comunidad comprometida con la innovación, la investigación y el éxito profesional.",
     imagen: "/carrousel.jpeg",
     posicion: "object-[center_30%]",
-    boton1: "Ver Oferta",
-    link1: "/oferta-educativa",
+
     boton2: "Contactar",
     link2: "/contacto",
   },
@@ -136,25 +135,6 @@ export function Hero() {
                       esCentrado ? "justify-center" : "justify-start"
                     }`}
                   >
-                    <Link
-                      href={slide.link1}
-                      className="group rounded-md bg-institucional-500 px-8 py-3.5 text-sm font-bold text-white shadow-xl shadow-institucional-500/40 transition-all hover:bg-institucional-400 hover:-translate-y-1 flex items-center gap-2"
-                    >
-                      {slide.boton1}
-                      <svg
-                        className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        strokeWidth={2.5}
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M14 5l7 7m0 0l-7 7m7-7H3"
-                        />
-                      </svg>
-                    </Link>
                     <Link
                       href={slide.link2}
                       className="rounded-md border border-white/40 bg-black/20 backdrop-blur-md px-8 py-3.5 text-sm font-bold text-white transition-all hover:bg-black/40 hover:-translate-y-1"

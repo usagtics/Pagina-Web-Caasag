@@ -21,7 +21,10 @@ export function Historia() {
 
           <div className="relative border-l-2 border-institucional-500 pl-6 sm:pl-8 mb-10">
             <p className="text-lg leading-loose text-azul-100/90 font-light mb-6">
-              El <strong className="font-semibold text-white">CAASAG</strong>{" "}
+              El{" "}
+              <strong className="font-semibold text-white">
+                Colegiado de Alianzas Académicas San Andrés de Guanajuato
+              </strong>{" "}
               surge el{" "}
               <strong className="font-semibold text-white">
                 14 de noviembre del 2024

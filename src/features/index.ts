@@ -18,3 +18,4 @@ export { Decalogo } from "./components/home/Decalogo";
 export { CintilloInstituciones } from "./components/home/CintilloInstituciones";
 export { EventosDetalle } from "./components/home/EventosDetalle";
 export { Contacto } from "./components/home/Contacto";
+export { Convocatorias } from "./components/home/convocatorias";

@@ -2,9 +2,9 @@ import Image from "next/image";
 
 const compromisos = [
   {
-    titulo: "Alianzas de Alto Nivel",
+    titulo: "Innovación educativa y tecnológica",
     descripcion:
-      "Convenios estratégicos a nivel nacional e internacional para nuestras instituciones.",
+      "Impulsamos la adopción de nuevas herramientas y metodologías digitales para transformar la enseñanza.",
     icono: (
       <svg
         className="h-6 w-6"
@@ -16,15 +16,20 @@ const compromisos = [
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
-          d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
+          d="M12 14l9-5-9-5-9 5 9 5z"
+        />
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"
         />
       </svg>
     ),
   },
   {
-    titulo: "Movilidad Académica",
+    titulo: "Vinculación académica interinstitucional",
     descripcion:
-      "Programas de intercambio académico y docente que enriquecen la experiencia.",
+      "Creamos puentes de colaboración entre escuelas y universidades para compartir experiencias y recursos.",
     icono: (
       <svg
         className="h-6 w-6"
@@ -36,15 +41,15 @@ const compromisos = [
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
-          d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
+          d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
         />
       </svg>
     ),
   },
   {
-    titulo: "Innovación Educativa",
+    titulo: "Consultoría y asesoría educativa",
     descripcion:
-      "Capacitaciones continuas y acceso a tecnologías de vanguardia para el desarrollo.",
+      "Brindamos acompañamiento especializado para la mejora continua de los procesos académicos.",
     icono: (
       <svg
         className="h-6 w-6"
@@ -56,15 +61,15 @@ const compromisos = [
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
-          d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+          d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"
         />
       </svg>
     ),
   },
   {
-    titulo: "Proyección Social",
+    titulo: "Actualización permanente",
     descripcion:
-      "Participación en foros y proyectos compartidos que generan un impacto positivo.",
+      "Fomentamos la capacitación constante de docentes y directivos para mantener altos estándares.",
     icono: (
       <svg
         className="h-6 w-6"
@@ -76,7 +81,27 @@ const compromisos = [
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
-          d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+          d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+        />
+      </svg>
+    ),
+  },
+  {
+    titulo: "Plataformas virtuales y entornos digitales",
+    descripcion:
+      "Facilitamos el acceso a herramientas tecnológicas que potencian el aprendizaje y la gestión escolar.",
+    icono: (
+      <svg
+        className="h-6 w-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        strokeWidth={1.5}
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
         />
       </svg>
     ),
@@ -98,9 +123,9 @@ export function Compromiso() {
           <div className="absolute inset-0 bg-gradient-to-t from-azul-950 via-transparent to-transparent"></div>
         </div>
 
-        <div className="relative z-10 mx-auto flex max-w-7xl flex-col items-center justify-center px-6 py-28 text-center sm:px-16 sm:py-36 lg:items-start lg:text-left lg:px-20">
-          <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 backdrop-blur-md mb-6">
-            <span className="h-1.5 w-1.5 rounded-full bg-institucional-500 animate-pulse"></span>
+        <div className="relative z-10 mx-auto flex max-w-7xl flex-col items-center justify-center px-6 py-28 text-center sm:px-16 sm:py-36 lg:items-start lg:px-20 lg:text-left">
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 backdrop-blur-md">
+            <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-institucional-500"></span>
             <span className="text-xs font-bold uppercase tracking-widest text-white">
               El Valor de la Alianza
             </span>
@@ -110,7 +135,7 @@ export function Compromiso() {
             Lo que ofrecemos a nuestras{" "}
             <span className="text-institucional-400">instituciones</span>
           </h2>
-          <p className="mt-6 max-w-2xl text-lg sm:text-xl text-azul-100/80 font-light text-balance">
+          <p className="mt-6 max-w-2xl text-lg font-light text-azul-100/80 text-balance sm:text-xl">
             Elevar la calidad educativa a través de la unión de nuestras
             instituciones, generando un ecosistema de colaboración y crecimiento
             compartido.
@@ -118,21 +143,21 @@ export function Compromiso() {
         </div>
       </div>
 
-      <div className="relative z-20 mx-auto -mt-24 max-w-6xl px-4 sm:px-8">
-        <div className="grid gap-5 sm:gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="relative z-20 mx-auto -mt-24 max-w-7xl px-4 sm:px-8">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5 sm:gap-5">
           {compromisos.map((compromiso, index) => (
             <div
               key={index}
-              className="group relative flex flex-col items-start rounded-3xl bg-white p-6 sm:p-8 shadow-[0_15px_40px_-10px_rgba(19,43,82,0.2)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_25px_50px_-10px_rgba(19,43,82,0.3)] border border-neutral-100"
+              className="group relative flex flex-col items-start rounded-3xl border border-neutral-100 bg-white p-6 shadow-[0_15px_40px_-10px_rgba(19,43,82,0.2)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_25px_50px_-10px_rgba(19,43,82,0.3)]"
             >
-              <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-azul-50 text-azul-800 transition-colors duration-500 group-hover:bg-institucional-500 group-hover:text-white group-hover:scale-110 shadow-sm">
+              <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-azul-50 text-azul-800 shadow-sm transition-colors duration-500 group-hover:scale-110 group-hover:bg-institucional-500 group-hover:text-white">
                 {compromiso.icono}
               </div>
 
-              <h3 className="text-lg font-bold text-azul-900 mb-3 group-hover:text-institucional-600 transition-colors">
+              <h3 className="mb-3 text-base font-bold leading-tight text-azul-900 transition-colors group-hover:text-institucional-600">
                 {compromiso.titulo}
               </h3>
-              <p className="text-sm leading-relaxed text-neutral-500 font-light">
+              <p className="text-xs leading-relaxed text-neutral-500 font-light sm:text-sm">
                 {compromiso.descripcion}
               </p>
 

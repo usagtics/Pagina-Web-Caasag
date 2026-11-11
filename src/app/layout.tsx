@@ -4,6 +4,7 @@ import "./globals.css";
 import { Header } from "@/shared/layout/Header";
 import { Footer } from "@/shared/layout/Footer";
 import { siteConfig } from "@/shared/config/site";
+import { ScrollToTop } from "@/features/components/home/ScrollToTop";
 
 const geist = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 
@@ -22,8 +23,9 @@ export default function RootLayout({
     <html lang="es-MX">
       <body className={`${geist.variable} antialiased`}>
         <Header />
-        <main>{children}</main>
+        <main className="pt-[130px]">{children}</main>
         <Footer />
+        <ScrollToTop />
       </body>
     </html>
   );

@@ -35,54 +35,6 @@ export function CINTA2() {
             más fuertes.
           </span>
         </h2>
-
-        <div className="flex flex-col items-center justify-center gap-10 sm:flex-row sm:gap-16">
-          <Link
-            href="/afiliacion"
-            className="group flex flex-col items-center gap-2 outline-none"
-          >
-            <span className="text-2xl font-bold text-white transition-colors group-hover:text-institucional-400 flex items-center gap-3">
-              Afiliar mi institución
-              <svg
-                className="h-6 w-6 transition-transform duration-300 group-hover:translate-x-2"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M17 8l4 4m0 0l-4 4m4-4H3"
-                />
-              </svg>
-            </span>
-            <span className="h-0.5 w-0 bg-institucional-500 transition-all duration-300 group-hover:w-full"></span>
-          </Link>
-
-          <Link
-            href="/contacto"
-            className="group flex flex-col items-center gap-2 outline-none"
-          >
-            <span className="text-xl font-medium text-azul-100/60 transition-colors group-hover:text-white flex items-center gap-3">
-              Solicitar información
-              <svg
-                className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-2"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={1.5}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M17 8l4 4m0 0l-4 4m4-4H3"
-                />
-              </svg>
-            </span>
-            <span className="h-px w-0 bg-white/40 transition-all duration-300 group-hover:w-full"></span>
-          </Link>
-        </div>
       </div>
     </section>
   );
