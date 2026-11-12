@@ -1,4 +1,4 @@
-import { EventosDetalle } from "@/features/components/home/EventosDetalle";
+import { ListaEventos } from "@/features";
 
 export const metadata = {
   title: "Eventos y Asambleas | CAASAG",
@@ -9,7 +9,7 @@ export const metadata = {
 export default function EventosPage() {
   return (
     <main className="bg-azul-950 min-h-screen">
-      <EventosDetalle />
+      <ListaEventos />
     </main>
   );
 }

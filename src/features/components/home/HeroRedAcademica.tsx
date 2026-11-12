@@ -3,6 +3,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { EtiquetaSeccion } from "@/features/ui/EtiquetaSeccion";
+import { AnimacionEntrada } from "@/features/ui/AnimacionEntrada";
+import { TextoDegradado } from "@/features/ui/TextoDegradado";
+import { TransicionCortina } from "@/features/ui/TransicionCortina";
+import { IndicadorScroll } from "@/features/ui/IndicadorScroll";
 
 const imagenesFondo = [
   "/nosotros3.jpg",
@@ -32,7 +37,7 @@ export function HeroRedAcademica() {
       <div className="absolute inset-0 z-0">
         {imagenesFondo.map((img, i) => (
           <div
-            key={i}
+            key={img}
             className={`absolute inset-0 transition-opacity duration-1000 ${
               i === indice ? "opacity-100 z-10" : "opacity-0 z-0"
             }`}
@@ -50,63 +55,36 @@ export function HeroRedAcademica() {
         ))}
       </div>
 
-      <div className="absolute inset-0 z-10 bg-azul-950/70 mix-blend-multiply pointer-events-none"></div>
-      <div className="absolute inset-0 z-10 bg-gradient-to-t from-azul-950 via-azul-950/40 to-transparent pointer-events-none"></div>
+      <div className="absolute inset-0 z-10 bg-azul-950/70 mix-blend-multiply pointer-events-none" />
+      <div className="absolute inset-0 z-10 bg-gradient-to-t from-azul-950 via-azul-950/40 to-transparent pointer-events-none" />
 
-      <div className="absolute inset-0 z-20 flex pointer-events-none">
-        {[0, 1, 2, 3, 4].map((panel, i) => (
-          <div
-            key={panel}
-            className={`h-full flex-1 transition-transform duration-700 ease-in-out ${
-              i % 2 === 0 ? "bg-azul-900" : "bg-institucional-600"
-            }`}
-            style={{
-              transform: isWiping ? "scaleX(1)" : "scaleX(0)",
-              transformOrigin: isWiping ? "right" : "left",
-              transitionDelay: isWiping ? `${i * 80}ms` : `${(4 - i) * 80}ms`,
-            }}
-          />
-        ))}
-      </div>
+      <TransicionCortina isWiping={isWiping} />
 
       <div className="relative z-30 flex w-full max-w-4xl flex-col items-center px-4 text-center">
-        <div
-          className="mb-8 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-5 py-2 backdrop-blur-md opacity-0 animate-[slideUp_0.8s_cubic-bezier(0.16,1,0.3,1)_forwards]"
-          style={{ animationDelay: "200ms" }}
-        >
-          <span className="h-2 w-2 rounded-full bg-institucional-500 animate-ping"></span>
-          <span className="text-xs font-bold uppercase tracking-[0.3em] text-white">
-            Comunidad CAASAG
-          </span>
-        </div>
+        <AnimacionEntrada direccion="arriba" retraso={0.2} alCargar>
+          <EtiquetaSeccion texto="Comunidad CAASAG" />
+        </AnimacionEntrada>
 
-        <h1
-          className="text-5xl font-black tracking-tight text-white sm:text-7xl lg:text-[6rem] leading-[1.05] mb-8 text-balance drop-shadow-2xl opacity-0 animate-[slideUp_1s_cubic-bezier(0.16,1,0.3,1)_forwards]"
-          style={{ animationDelay: "400ms" }}
-        >
-          Nuestra Red <br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-institucional-200 via-institucional-400 to-institucional-200">
-            Académica.
-          </span>
-        </h1>
+        <AnimacionEntrada direccion="arriba" retraso={0.4} alCargar>
+          <h1 className="mb-8 text-balance text-5xl font-black leading-tight tracking-tight text-white drop-shadow-2xl sm:text-7xl lg:text-8xl">
+            Nuestra Red <br />
+            <TextoDegradado>Académica.</TextoDegradado>
+          </h1>
+        </AnimacionEntrada>
 
-        <p
-          className="text-lg sm:text-2xl leading-relaxed text-azul-100/90 font-light max-w-2xl mx-auto mb-12 opacity-0 animate-[slideUp_1s_cubic-bezier(0.16,1,0.3,1)_forwards]"
-          style={{ animationDelay: "600ms" }}
-        >
-          Un colegiado que impulsa la colaboración, el fortalecimiento
-          institucional y el crecimiento de la educación
-        </p>
+        <AnimacionEntrada direccion="arriba" retraso={0.6} alCargar>
+          <p className="mx-auto mb-12 max-w-2xl text-lg font-light leading-relaxed text-azul-100/90 sm:text-2xl">
+            Un colegiado que impulsa la colaboración, el fortalecimiento
+            institucional y el crecimiento de la educación.
+          </p>
+        </AnimacionEntrada>
 
-        <div
-          className="opacity-0 animate-[slideUp_1s_cubic-bezier(0.16,1,0.3,1)_forwards]"
-          style={{ animationDelay: "800ms" }}
-        >
+        <AnimacionEntrada direccion="arriba" retraso={0.8} alCargar>
           <Link
             href="#directorio"
-            className="group relative inline-flex items-center gap-3 overflow-hidden rounded-full bg-white px-10 py-4 text-sm font-bold text-azul-950 transition-all hover:scale-105 hover:shadow-[0_0_40px_rgba(255,255,255,0.3)]"
+            className="group relative inline-flex items-center gap-3 overflow-hidden rounded-full bg-white px-10 py-4 text-sm font-bold text-azul-950 transition-all hover:scale-105 hover:shadow-2xl hover:shadow-white/20"
           >
-            <span className="absolute inset-0 z-0 h-full w-full bg-gradient-to-r from-institucional-300 to-institucional-500 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></span>
+            <span className="absolute inset-0 z-0 h-full w-full bg-gradient-to-r from-institucional-300 to-institucional-500 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
             <span className="relative z-10 flex items-center gap-3 transition-colors group-hover:text-white">
               Explorar Directorio
               <svg
@@ -124,20 +102,17 @@ export function HeroRedAcademica() {
               </svg>
             </span>
           </Link>
-        </div>
+        </AnimacionEntrada>
       </div>
 
-      <div
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-30 opacity-0 animate-[fadeInLeft_1s_ease-out_forwards]"
-        style={{ animationDelay: "1200ms" }}
+      <AnimacionEntrada
+        direccion="arriba"
+        retraso={1.2}
+        alCargar
+        className="absolute bottom-10 left-1/2 z-30 -translate-x-1/2"
       >
-        <div className="flex flex-col items-center gap-3">
-          <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/50">
-            Descubre más
-          </span>
-          <div className="h-12 w-px bg-gradient-to-b from-white/50 to-transparent"></div>
-        </div>
-      </div>
+        <IndicadorScroll texto="Descubre más" />
+      </AnimacionEntrada>
     </section>
   );
 }

@@ -122,7 +122,7 @@ export function MenuOverlay({ open, onClose }: MenuOverlayProps) {
             HAZTE MIEMBRO
           </Link>
           <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-6 text-white/50 text-xs sm:text-sm">
-            <span>contacto@caasag.mx</span>
+            {siteConfig.contact.email}
             <span className="hidden sm:block h-1 w-1 rounded-full bg-white/30"></span>
             <span>479 228 6990</span>
           </div>

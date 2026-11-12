@@ -16,6 +16,7 @@ export { HeroRedAcademica } from "./components/home/HeroRedAcademica";
 export { LogosRed } from "./components/home/LogosRed";
 export { Decalogo } from "./components/home/Decalogo";
 export { CintilloInstituciones } from "./components/home/CintilloInstituciones";
-export { EventosDetalle } from "./components/home/EventosDetalle";
+export { default as EventosDetalle } from "./components/home/EventosDetalle";
 export { Contacto } from "./components/home/Contacto";
 export { Convocatorias } from "./components/home/convocatorias";
+export { ListaEventos } from "./components/home/ListaEventos";

@@ -1,99 +1,41 @@
-import Image from "next/image";
+import { FilaLogos } from "./FilaLogos";
+
+const logosAgremiados = Array.from({ length: 30 }, (_, index) => ({
+  src: `/logosagremiados/logo${index + 1}.png`,
+  alt: `Institución aliada ${index + 1}`,
+}));
 
 export function Aliados() {
-  const todosLosLogos = Array.from(
-    { length: 30 },
-    (_, i) => `/logosagremiados/logo${i + 1}.png`,
-  );
-
-  const fila1 = todosLosLogos.slice(0, 15);
-  const fila2 = todosLosLogos.slice(15, 30);
+  const primeraFila = logosAgremiados.slice(0, 15);
+  const segundaFila = logosAgremiados.slice(15);
 
   return (
-    <section className="bg-[#F8F9FA] py-24 overflow-hidden relative border-y border-neutral-100">
-      <div className="mx-auto max-w-7xl px-4 mb-16 relative z-10 flex flex-col items-center text-center">
+    <section className="relative overflow-hidden border-y border-neutral-100 bg-[#F8F9FA] py-24">
+      <div className="relative z-10 mx-auto mb-16 flex max-w-7xl flex-col items-center px-4 text-center">
         <h2 className="text-4xl font-black tracking-tight text-azul-900 sm:text-5xl">
           Nuestra Red de{" "}
           <span className="text-institucional-500">Confianza</span>
         </h2>
 
-        <p className="text-lg sm:text-xl font-light text-neutral-500 max-w-2xl mx-auto leading-relaxed">
+        <p className="mx-auto mt-4 max-w-2xl text-lg font-light leading-relaxed text-neutral-500 sm:text-xl">
           Instituciones que colaboran con{" "}
           <strong className="font-semibold text-azul-800">CAASAG</strong> para
           impulsar la excelencia académica en la región.
         </p>
       </div>
 
-      <div className="relative w-full marquee-container flex flex-col gap-6">
-        <div className="absolute left-0 top-0 z-20 h-full w-24 sm:w-48 bg-gradient-to-r from-[#F8F9FA] to-transparent pointer-events-none"></div>
-        <div className="absolute right-0 top-0 z-20 h-full w-24 sm:w-48 bg-gradient-to-l from-[#F8F9FA] to-transparent pointer-events-none"></div>
+      <div className="marquee-container relative flex w-full flex-col gap-6">
+        <div className="pointer-events-none absolute left-0 top-0 z-20 h-full w-24 bg-gradient-to-r from-[#F8F9FA] to-transparent sm:w-48" />
+        <div className="pointer-events-none absolute right-0 top-0 z-20 h-full w-24 bg-gradient-to-l from-[#F8F9FA] to-transparent sm:w-48" />
 
         <div className="flex w-max animate-marquee-left">
-          <div className="flex items-center gap-6 px-3">
-            {fila1.map((logo, index) => (
-              <div
-                key={`f1-${index}`}
-                className="relative flex h-32 w-64 shrink-0 items-center justify-center rounded-2xl bg-white p-3 shadow-sm border border-neutral-100/50 transition-all duration-300 hover:shadow-md hover:-translate-y-1"
-              >
-                <Image
-                  src={logo}
-                  alt={`Aliado ${index + 1}`}
-                  fill
-                  className="object-contain p-2"
-                />
-              </div>
-            ))}
-          </div>
-
-          <div className="flex items-center gap-6 px-3" aria-hidden="true">
-            {fila1.map((logo, index) => (
-              <div
-                key={`f1-dup-${index}`}
-                className="relative flex h-32 w-64 shrink-0 items-center justify-center rounded-2xl bg-white p-3 shadow-sm border border-neutral-100/50 transition-all duration-300 hover:shadow-md hover:-translate-y-1"
-              >
-                <Image
-                  src={logo}
-                  alt={`Aliado ${index + 1}`}
-                  fill
-                  className="object-contain p-2"
-                />
-              </div>
-            ))}
-          </div>
+          <FilaLogos logos={primeraFila} />
+          <FilaLogos logos={primeraFila} duplicar />
         </div>
 
         <div className="flex w-max animate-marquee-right">
-          <div className="flex items-center gap-6 px-3">
-            {fila2.map((logo, index) => (
-              <div
-                key={`f2-${index}`}
-                className="relative flex h-32 w-64 shrink-0 items-center justify-center rounded-2xl bg-white p-3 shadow-sm border border-neutral-100/50 transition-all duration-300 hover:shadow-md hover:-translate-y-1"
-              >
-                <Image
-                  src={logo}
-                  alt={`Aliado ${index + 16}`}
-                  fill
-                  className="object-contain p-2"
-                />
-              </div>
-            ))}
-          </div>
-
-          <div className="flex items-center gap-6 px-3" aria-hidden="true">
-            {fila2.map((logo, index) => (
-              <div
-                key={`f2-dup-${index}`}
-                className="relative flex h-32 w-64 shrink-0 items-center justify-center rounded-2xl bg-white p-3 shadow-sm border border-neutral-100/50 transition-all duration-300 hover:shadow-md hover:-translate-y-1"
-              >
-                <Image
-                  src={logo}
-                  alt={`Aliado ${index + 16}`}
-                  fill
-                  className="object-contain p-2"
-                />
-              </div>
-            ))}
-          </div>
+          <FilaLogos logos={segundaFila} />
+          <FilaLogos logos={segundaFila} duplicar />
         </div>
       </div>
     </section>

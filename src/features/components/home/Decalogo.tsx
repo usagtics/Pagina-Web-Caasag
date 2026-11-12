@@ -1,36 +1,25 @@
-const decalogo = [
-  "Prometo trabajar con pasión por el bienestar educativo de mi comunidad.",
-  "Seré leal a los principios del CAASAG y a sus fines colectivos.",
-  "Actuaré con transparencia, justicia y responsabilidad en todas mis funciones.",
-  "Haré de la honestidad mi guía diaria en cada palabra, decisión y acción.",
-  "Impulsaré la colaboración entre instituciones con respeto y apertura.",
-  "Utilizaré la tecnología como una herramienta para el bien común.",
-  "Me prepararé constantemente para ser agente de cambio en la educación.",
-  "Rechazaré todo acto de corrupción, discriminación o injusticia.",
-  "Escucharé, dialogaré y aprenderé con humildad de mis colegas.",
-  "Seré orgullosamente parte de esta alianza que construye un futuro mejor.",
-];
+import { FondoCuadricula } from "@/features/ui/FondoCuadricula";
+import { EtiquetaSeccion } from "@/features/ui/EtiquetaSeccion";
+import { TextoDegradado } from "@/features/ui/TextoDegradado";
+import { TarjetaDecalogo } from "@/features/ui/TarjetaDecalogo";
+import { decalogoData } from "@/data/decalogoData";
 
 export function Decalogo() {
   return (
     <section className="relative overflow-hidden bg-white py-24 sm:py-32">
-      <div className="absolute top-1/2 left-1/2 h-[600px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-azul-100/40 blur-[120px] pointer-events-none"></div>
-      <div className="absolute bottom-0 right-1/4 h-[400px] w-[400px] translate-y-1/3 rounded-full bg-institucional-100/40 blur-[100px] pointer-events-none"></div>
+      <FondoCuadricula size={48} colorHex="#0f172a" opacityHex="05" />
 
       <div className="relative z-10 w-full">
         <div className="mx-auto max-w-4xl px-4 text-center mb-16">
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-azul-50 px-3 py-1 border border-azul-100 shadow-sm">
-            <span className="h-1.5 w-1.5 rounded-full bg-institucional-500 animate-pulse"></span>
-            <span className="text-[10px] font-bold uppercase tracking-widest text-azul-900">
-              Código de Ética
-            </span>
-          </div>
+          <EtiquetaSeccion
+            texto="Código de Ética"
+            className="mx-auto border-azul-100 bg-azul-50 [&>span:last-child]:text-azul-900"
+          />
+
           <h2 className="text-3xl font-extrabold tracking-tight text-azul-950 sm:text-4xl lg:text-5xl text-balance">
-            Decálogo del{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-azul-800 to-institucional-600">
-              Agremiado
-            </span>
+            Decálogo del <TextoDegradado>Agremiado</TextoDegradado>
           </h2>
+
           <p className="mt-4 text-base text-neutral-500 font-light max-w-2xl mx-auto">
             Nuestros 10 compromisos fundamentales con la excelencia, la
             integridad y el futuro de la educación.
@@ -39,39 +28,8 @@ export function Decalogo() {
 
         <div className="w-full border-y border-neutral-200 bg-neutral-200">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-[1px]">
-            {decalogo.map((texto, index) => (
-              <div
-                key={index}
-                className="group relative flex items-start gap-5 bg-white p-6 transition-colors duration-500 hover:bg-gradient-to-br hover:from-azul-50/50 hover:to-white sm:p-8 lg:px-12"
-              >
-                <div className="absolute left-0 top-0 h-full w-1 bg-azul-900 scale-y-0 transition-transform duration-500 group-hover:scale-y-100 origin-top"></div>
-
-                <div className="flex h-10 w-10 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-xl bg-neutral-50 text-base sm:text-lg font-black text-azul-200 transition-all duration-500 group-hover:bg-azul-900 group-hover:text-institucional-400 group-hover:shadow-md">
-                  {index + 1 < 10 ? `0${index + 1}` : index + 1}
-                </div>
-
-                <div className="flex-1 pt-1 sm:pt-2">
-                  <p className="text-[15px] sm:text-base leading-relaxed text-neutral-600 font-light transition-colors duration-500 group-hover:text-azul-950">
-                    {texto}
-                  </p>
-                </div>
-
-                <div className="hidden sm:flex opacity-0 transition-opacity duration-500 group-hover:opacity-100 pt-2 sm:pt-3">
-                  <svg
-                    className="h-5 w-5 text-institucional-500"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={3}
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M5 13l4 4L19 7"
-                    />
-                  </svg>
-                </div>
-              </div>
+            {decalogoData.map((texto, index) => (
+              <TarjetaDecalogo key={index} numero={index + 1} texto={texto} />
             ))}
           </div>
         </div>
@@ -97,7 +55,7 @@ export function Decalogo() {
               <span className="text-xs font-black uppercase tracking-widest text-azul-950">
                 Aprobado oficialmente
               </span>
-              <span className="text-[10px] font-medium text-neutral-500">
+              <span className="text-xs font-medium text-neutral-500">
                 Por el Consejo Directivo
               </span>
             </div>

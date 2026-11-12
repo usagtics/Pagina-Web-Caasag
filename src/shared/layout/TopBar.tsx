@@ -55,7 +55,7 @@ export function TopBar({ scrolled, open }: TopBarProps) {
               d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
             />
           </svg>
-          León, Guanajuato
+          {siteConfig.contact.address}
         </span>
       </div>
     </div>
