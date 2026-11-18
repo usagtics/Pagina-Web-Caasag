@@ -29,7 +29,7 @@ export function ListaEventos() {
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-12">
           {eventos.map((evento, index) => {
-            const isLarge = index === 0 || index === 3;
+            const isLarge = index % 4 === 0 || index % 4 === 3;
 
             return (
               <AnimacionEntrada
@@ -41,11 +41,7 @@ export function ListaEventos() {
                 } flex`}
               >
                 <article
-                  className={`group relative flex w-full flex-col justify-end overflow-hidden rounded-[2rem] bg-neutral-900 shadow-2xl transition-all duration-500 hover:-translate-y-2 ${
-                    isLarge
-                      ? "h-[450px] sm:h-[550px]"
-                      : "h-[450px] sm:h-[550px]"
-                  }`}
+                  className={`group relative flex w-full flex-col justify-end overflow-hidden rounded-[2rem] bg-neutral-900 shadow-2xl transition-all duration-500 hover:-translate-y-2 h-[450px] sm:h-[550px]`}
                 >
                   <Image
                     src={evento.imagen}

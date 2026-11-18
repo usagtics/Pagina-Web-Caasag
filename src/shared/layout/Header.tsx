@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { cn } from "@/shared/lib/cn";
 import { TopBar } from "./TopBar";
 import { Navbar } from "./Navbar";
-import { MenuOverlay } from "./MenuOverlay";
+import { MenuOverlay } from "./menu/MenuOverlay";
 
 export function Header() {
   const [open, setOpen] = useState(false);

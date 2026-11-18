@@ -1,3 +1,5 @@
+import { dd } from "framer-motion/client";
+
 export type Evento = {
   slug: string;
   fecha: string;
@@ -11,6 +13,11 @@ export type Evento = {
   contenido?: {
     subtitulo?: string;
     parrafos: string[];
+    puntosClave?: {
+      titulo: string;
+      descripcion: string;
+      imagenes: string[];
+    }[];
   };
 };
 
@@ -103,14 +110,14 @@ export const eventos: Evento[] = [
     descripcion:
       "Más de 60 instituciones educativas de la República Mexicana se reunieron para dar la bienvenida a nuevos agremiados y fortalecer la educación.",
     ubicacion: "Puerto Vallarta, Jalisco",
-    imagen: "/asamblea2/segunda-asambleaaa.jpg",
+    imagen: "/asamblea2/foto6-asamble2.jpg",
     galeria: [
       "/asamblea2/foto1-asamblea2.jpg",
       "/asamblea2/foto2-asamblea2.jpg",
       "/asamblea2/foto3-asamblea2.jpg",
       "/asamblea2/foto4-asamblea2.jpg",
       "/asamblea2/foto5-asamblea2.jpg",
-      "/asamblea2/foto6-asamblea2.jpg",
+      "/asamblea2/foto6-asamble2.jpg",
       "/asamblea2/foto7-asamblea2.jpg",
       "/asamblea2/foto8-asamblea2.jpg",
       "/asamblea2/foto9-asamblea2.jpg",
@@ -119,8 +126,48 @@ export const eventos: Evento[] = [
       subtitulo:
         "Así se vivió el primer día de nuestra 2ª Asamblea Oficial CAASAG 2025",
       parrafos: [
-        "Con gran orgullo recibimos a más de 60 instituciones educativas de toda la República Mexicana, en un encuentro que fortalece nuestra trayectoria, formación, educación e innovación.",
+        "Con gran orgullo recibimos a las instituciones educativas de toda la República Mexicana, en un encuentro que fortalece nuestra trayectoria, formación, educación e innovación.",
         "Durante esta jornada se dio la integración de nuevos agremiados, reafirmando el compromiso de todos por impulsar una educación de calidad, basada en la colaboración, la ética y el trabajo conjunto.",
+      ],
+      puntosClave: [
+        {
+          titulo: "Colocación de Pin Institucional",
+          descripcion:
+            "Momento conmemorativo de la asamblea donde se realizó la colocación del pin institucional, dando la bienvenida oficial y toma de protesta a los nuevos agremiados que se integran a nuestra red académica.",
+          imagenes: [
+            "/asamblea2/colocacionPin/foto1-colocacionPin.jpg",
+            "/asamblea2/colocacionPin/foto2-colocacionPin.jpg",
+            "/asamblea2/colocacionPin/foto3-colocacionPin.jpg",
+            "/asamblea2/colocacionPin/foto4-colocacionPin.jpg",
+            "/asamblea2/colocacionPin/foto5-colocacionPin.jpg",
+            "/asamblea2/colocacionPin/foto6-colocacionPin.jpg",
+            "/asamblea2/colocacionPin/foto7-colocacionPin.jpg",
+            "/asamblea2/colocacionPin/foto8-colocacionPin.jpg",
+            "/asamblea2/colocacionPin/foto10-colocacionPin.jpg",
+          ],
+        },
+        {
+          titulo: "Cena de Gala y Networking",
+          descripcion:
+            "Encuentro de clausura para fortalecer las relaciones institucionales y compartir perspectivas entre rectores, directores e invitados.",
+          imagenes: [
+            "/asamblea2/cenagala/foto1-cenagala.jpg",
+            "/asamblea2/cenagala/foto2-cenagala.jpg",
+            "/asamblea2/cenagala/foto3-cenagala.jpeg",
+            "/asamblea2/cenagala/foto4-cenagala.jpeg",
+          ],
+        },
+        {
+          titulo: "Entrega de Actas",
+          descripcion:
+            "Momento culminante de la asamblea donde se realizó la entrega oficial de actas a las instituciones participantes. Este acto protocolario representa la formalización de nuestros acuerdos y el compromiso compartido de seguir trabajando por la excelencia educativa dentro de nuestra comunidad.",
+          imagenes: [
+            "/asamblea2/entrega-actas/foto1-entregaactas.jpg",
+            "/asamblea2/entrega-actas/foto2-entregaactas.jpg",
+            "/asamblea2/entrega-actas/foto3-entregaactas.jpg",
+            "/asamblea2/entrega-actas/foto4-entregaactas.jpg",
+          ],
+        },
       ],
     },
   },
@@ -154,6 +201,26 @@ export const eventos: Evento[] = [
     },
   },
   {
+    slug: "rueda-de-prensa-queretaro",
+    titulo:
+      "Rueda de Prensa Congreso Internacional de Universidades CAASAG 2026",
+    fecha: "Octubre 2026",
+    categoria: "Prensa",
+    ubicacion: "Querétaro, Qro.",
+    imagen: "/asamblea3/rueda-prensa/foto1-ruedaprensaqro.jpg",
+    descripcion:
+      "Anuncio oficial ante los medios de comunicación sobre los preparativos, objetivos y alcances del próximo Congreso Internacional de Universidades CAASAG 2026.",
+    contenido: {
+      subtitulo: "Rumbo al evento académico más importante del año",
+      parrafos: [
+        "Con gran entusiasmo, nos reunimos con los medios de comunicación en la ciudad de Querétaro para presentar oficialmente los detalles del Congreso Internacional de Universidades CAASAG 2026. Durante este encuentro, compartimos la visión, los ejes temáticos y las grandes oportunidades que este magno evento ofrecerá a nuestra comunidad.",
+        "Esta rueda de prensa marca el inicio formal de los preparativos para recibir a instituciones, docentes y líderes del sector educativo. A través de este espacio, extendemos una invitación abierta a sumarse a esta iniciativa que busca transformar la educación y fortalecer las alianzas estratégicas a nivel nacional.",
+      ],
+    },
+
+    videos: ["/asamblea3/rueda-prensa/rueda-prensaqro.mp4"],
+  },
+  {
     slug: "rueda-de-prensa",
     fecha: "03 Noviembre, 2025",
     categoria: "Prensa",
@@ -172,6 +239,83 @@ export const eventos: Evento[] = [
         "Esta rueda de prensa marca el banderazo de salida hacia un evento que promete transformar el panorama educativo de la región, apostando por la innovación, la vinculación intersectorial y el desarrollo de talento humano altamente capacitado para los retos del futuro.",
       ],
     },
+  },
+  {
+    slug: "jugueton",
+    fecha: "09 Diciembre, 2025",
+    categoria: "Donaciones",
+    titulo: "Juguetón 2025",
+    descripcion:
+      "CAASAG se suma a la alegría de compartir, llevando juguetes y sonrisas a los niños.",
+    ubicacion: "Guanajuato",
+    imagen: "/jugueton/foto5-jugueton.png",
+    contenido: {
+      subtitulo:
+        "Una pequeña muestra de solidaridad puede convertirse en una gran sonrisa. Gracias a todos los que hicieron posible esta donación.",
+      parrafos: [
+        "El Colegiado y Alianzas Académicas San Andrés de Guanajuato (CAASAG) participó con entusiasmo en el Juguetón 2025, sumándose a esta noble iniciativa mediante la donación de juguetes para niñas y niños.",
+        "A través de esta acción, reafirmamos nuestro compromiso con la solidaridad y el bienestar de nuestra comunidad, contribuyendo a que más pequeños reciban un regalo y vivan momentos llenos de alegría e ilusión.",
+        "Agradecemos a todas las personas que hicieron posible esta donación. Cada juguete representa un gesto de cariño, generosidad y esperanza que puede transformar el día de un niño.",
+      ],
+    },
+    galeria: [
+      "/jugueton/foto1-jugueton.jpg",
+      "/jugueton/foto2-jugueton.jpg",
+      "/jugueton/foto3-jugueton.jpg",
+      "/jugueton/foto4-juegueton.jpg",
+      "/jugueton/foto5-jugueton.jpg",
+    ],
+  },
+  {
+    slug: "electromovilidad",
+    fecha: "08 Julio, 2025",
+    categoria: "Eventos",
+    titulo: "Evento de Electromovilidad",
+    descripcion:
+      "CAASAG participa en actividades relacionadas con la innovación, la movilidad sostenible y el desarrollo de nuevas tecnologías en el sector automotriz.",
+    ubicacion: "León, Guanajuato",
+    imagen: "/asamblea1/electromovilidad/foto2-electromovilidad.png",
+    contenido: {
+      subtitulo:
+        "La innovación y la tecnología impulsan nuevas formas de movilidad hacia un futuro más sostenible.",
+      parrafos: [
+        "El Colegiado y Alianzas Académicas San Andrés de Guanajuato (CAASAG) participó en el Evento de Electromovilidad, un espacio enfocado en conocer los avances tecnológicos y las nuevas tendencias que están transformando el sector de la movilidad.",
+        "Durante esta actividad se destacó la importancia de impulsar alternativas de transporte más eficientes y sostenibles, así como de promover el conocimiento y la vinculación con las nuevas tecnologías que contribuyen al desarrollo de la industria automotriz.",
+        "Con este tipo de participaciones, CAASAG reafirma su interés en generar espacios de acercamiento con los sectores productivos, fortalecer la colaboración institucional y mantenerse vinculado con las innovaciones que contribuyen al desarrollo de Guanajuato.",
+      ],
+    },
+    galeria: [
+      "/asamblea1/electromovilidad/foto1-electromovilidad.png",
+      "/asamblea1/electromovilidad/foto3-electromovilidad.jpg",
+      "/asamblea1/electromovilidad/foto4-electromovilidad.jpg",
+      "/asamblea1/electromovilidad/foto2-electromovilidad.png",
+      "/asamblea1/electromovilidad/foto5-electromovilidad.jpg",
+    ],
+  },
+  {
+    slug: "reiyukai",
+    fecha: "08 Julio, 2025",
+    categoria: "Eventos",
+    titulo: "Encuentro con Reiyukai",
+    descripcion:
+      "CAASAG fortalece los lazos de colaboración institucional y el acercamiento con organizaciones comprometidas con el desarrollo humano y el bienestar de la sociedad.",
+    ubicacion: "León, Guanajuato",
+    imagen: "/reiyukai/foto3-reiyukai.jpeg",
+    contenido: {
+      subtitulo:
+        "El compromiso social y el desarrollo humano fortalecen la construcción de una sociedad más solidaria.",
+      parrafos: [
+        "El Colegiado y Alianzas Académicas San Andrés de Guanajuato (CAASAG) participó en un encuentro con representantes de Reiyukai, organización de origen japonés que promueve valores humanos, el desarrollo personal y la contribución al bienestar de la sociedad.",
+        "Durante esta actividad se destacó la importancia de fomentar valores como el respeto, la responsabilidad, la solidaridad y el compromiso con los demás, principios que contribuyen a la formación integral de las personas y al fortalecimiento de las comunidades.",
+        "Con este tipo de encuentros, CAASAG reafirma su interés en establecer vínculos con organizaciones que comparten una visión de desarrollo humano y compromiso social, impulsando espacios de diálogo, colaboración y aprendizaje mutuo.",
+      ],
+    },
+    galeria: [
+      "/reiyukai/foto1-reiyukai.jpg",
+      "/reiyukai/foto2-reiyukai.jpg",
+      "/reiyukai/foto3-reiyukai.jpeg",
+      "/reiyukai/foto4-reiyukai.jpg",
+    ],
   },
 ];
 

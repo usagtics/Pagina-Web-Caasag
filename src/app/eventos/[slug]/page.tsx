@@ -1,17 +1,19 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { connection } from "next/server";
 import { Suspense } from "react";
+import { ArrowLeft, Calendar, MapPin, ArrowRight } from "lucide-react";
 import { eventos, getEventoBySlug } from "@/data/eventos";
 import { GaleriaEventoAsamblea1 } from "@/features/components/home/GaleriaEventoAsamblea1";
-import { ReadingProgressBar } from "@/features/components/home/ReadingProgressBar";
 import { ShareButtons } from "@/features/components/home/ShareButtons";
 import { AnimacionEntrada } from "@/features/ui/AnimacionEntrada";
 import { FondoCuadricula } from "@/features/ui/FondoCuadricula";
 import { TarjetaInfoEvento } from "@/features/ui/TarjetaInfoEvento";
 import { GaleriaVideos } from "@/features/components/home/GaleriaVideos";
+import { MomentosSlider } from "@/features/components/home/2Asamblea/CarruselMomentos";
 import { siteConfig } from "@/shared/config/site";
+
+const currentYear = new Date().getFullYear();
 
 export function generateStaticParams() {
   return eventos.map((evento) => ({ slug: evento.slug }));
@@ -25,13 +27,14 @@ export async function generateMetadata({ params }: PageProps) {
   const { slug } = await params;
   const evento = getEventoBySlug(slug);
   if (!evento) return { title: "Evento no encontrado | CAASAG" };
+
   return {
     title: `${evento.titulo} | CAASAG`,
     description: evento.descripcion,
   };
 }
 
-export default function EventoDetallePage({ params }: PageProps) {
+export default function EventoDetalle({ params }: PageProps) {
   return (
     <Suspense
       fallback={
@@ -46,19 +49,17 @@ export default function EventoDetallePage({ params }: PageProps) {
 }
 
 async function EventoContenido({ params }: PageProps) {
-  await connection();
-
   const { slug } = await params;
   const evento = getEventoBySlug(slug);
+
   if (!evento) notFound();
 
   const currentIndex = eventos.findIndex((e) => e.slug === slug);
-  const nextEvento = eventos[currentIndex + 1] || eventos[0];
+  const nextEvento =
+    eventos.length > 1 ? eventos[(currentIndex + 1) % eventos.length] : null;
 
   return (
     <main className="relative min-h-screen w-full bg-azul-950">
-      <ReadingProgressBar />
-
       <section className="relative flex h-[75vh] w-full items-center justify-center overflow-hidden sm:h-[85vh]">
         <div className="absolute inset-0">
           <Image
@@ -66,7 +67,8 @@ async function EventoContenido({ params }: PageProps) {
             alt={evento.titulo}
             fill
             priority
-            className="object-cover object-center scale-105 transition-transform duration-1000"
+            sizes="100vw"
+            className="object-cover object-center transition-transform duration-1000 opacity-80"
           />
         </div>
 
@@ -103,19 +105,10 @@ async function EventoContenido({ params }: PageProps) {
               href="/eventos"
               className="group inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-gray-500 transition-colors hover:text-institucional-500"
             >
-              <svg
+              <ArrowLeft
                 className="h-4 w-4 transition-transform duration-300 group-hover:-translate-x-1"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
                 strokeWidth={2.5}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M10 19l-7-7m0 0l7-7m-7 7h18"
-                />
-              </svg>
+              />
               Volver a eventos
             </Link>
 
@@ -123,45 +116,12 @@ async function EventoContenido({ params }: PageProps) {
               <TarjetaInfoEvento
                 etiqueta="Fecha"
                 valor={evento.fecha}
-                icono={
-                  <svg
-                    className="h-5 w-5"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                    />
-                  </svg>
-                }
+                icono={<Calendar className="h-5 w-5" strokeWidth={2} />}
               />
               <TarjetaInfoEvento
                 etiqueta="Ubicación"
                 valor={evento.ubicacion}
-                icono={
-                  <svg
-                    className="h-5 w-5"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                    />
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                    />
-                  </svg>
-                }
+                icono={<MapPin className="h-5 w-5" strokeWidth={2} />}
               />
             </div>
           </AnimacionEntrada>
@@ -177,7 +137,6 @@ async function EventoContenido({ params }: PageProps) {
               <p className="text-xl text-gray-800 sm:text-2xl font-light">
                 {evento.contenido?.parrafos[0] || evento.descripcion}
               </p>
-
               {evento.contenido?.parrafos.slice(1).map((parrafo, index) => (
                 <p key={index}>{parrafo}</p>
               ))}
@@ -185,6 +144,15 @@ async function EventoContenido({ params }: PageProps) {
 
             <ShareButtons titulo={evento.titulo} />
           </AnimacionEntrada>
+        </div>
+
+        <div className="relative z-10 w-full">
+          {evento.contenido?.puntosClave &&
+            evento.contenido.puntosClave.length > 0 && (
+              <AnimacionEntrada className="w-full block">
+                <MomentosSlider items={evento.contenido.puntosClave} />
+              </AnimacionEntrada>
+            )}
         </div>
 
         {((evento.videos && evento.videos.length > 0) ||
@@ -198,10 +166,23 @@ async function EventoContenido({ params }: PageProps) {
               <div className="h-px w-16 bg-gray-200" />
             </div>
 
-            <GaleriaVideos
-              videos={evento.videos || []}
-              poster={evento.imagen}
-            />
+            {evento.videos && evento.videos.length === 1 ? (
+              <div className="w-full max-w-6xl mx-auto px-4 sm:px-8 mb-16">
+                <div className="relative w-full aspect-video rounded-3xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.12)] bg-black">
+                  <video
+                    src={evento.videos[0]}
+                    controls
+                    className="w-full h-full object-contain"
+                    poster={evento.imagen}
+                  />
+                </div>
+              </div>
+            ) : (
+              <GaleriaVideos
+                videos={evento.videos || []}
+                poster={evento.imagen}
+              />
+            )}
 
             {evento.galeria && evento.galeria.length > 0 && (
               <div className="w-full">
@@ -214,43 +195,32 @@ async function EventoContenido({ params }: PageProps) {
           </AnimacionEntrada>
         )}
 
-        <AnimacionEntrada className="relative z-10 mx-auto mt-32 max-w-5xl px-4 sm:px-8">
-          <Link
-            href={`/eventos/${nextEvento.slug}`}
-            className="group relative flex flex-col sm:flex-row items-center justify-between overflow-hidden rounded-3xl bg-white p-6 sm:p-8 border border-gray-200 shadow-sm transition-all hover:shadow-xl hover:border-institucional-300"
-          >
-            <div className="absolute inset-0 bg-institucional-50 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-            <div className="relative z-10 text-center sm:text-left mb-4 sm:mb-0">
-              <p className="text-xs font-bold uppercase tracking-widest text-institucional-500 mb-2">
-                Siguiente Evento
-              </p>
-              <h4 className="text-xl sm:text-2xl font-bold text-azul-950 group-hover:text-institucional-600 transition-colors">
-                {nextEvento.titulo}
-              </h4>
-            </div>
-            <div className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-azul-950 text-white transition-transform duration-300 group-hover:translate-x-2 group-hover:bg-institucional-500">
-              <svg
-                className="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2.5}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2.5}
-                  d="M14 5l7 7m0 0l-7 7m7-7H3"
-                />
-              </svg>
-            </div>
-          </Link>
-        </AnimacionEntrada>
+        {nextEvento && (
+          <AnimacionEntrada className="relative z-10 mx-auto mt-32 max-w-5xl px-4 sm:px-8">
+            <Link
+              href={`/eventos/${nextEvento.slug}`}
+              className="group relative flex flex-col sm:flex-row items-center justify-between overflow-hidden rounded-3xl bg-white p-6 sm:p-8 border border-gray-200 shadow-sm transition-all hover:shadow-xl hover:border-institucional-300"
+            >
+              <div className="absolute inset-0 bg-institucional-50 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+              <div className="relative z-10 text-center sm:text-left mb-4 sm:mb-0">
+                <p className="text-xs font-bold uppercase tracking-widest text-institucional-500 mb-2">
+                  Siguiente Evento
+                </p>
+                <h4 className="text-xl sm:text-2xl font-bold text-azul-950 group-hover:text-institucional-600 transition-colors">
+                  {nextEvento.titulo}
+                </h4>
+              </div>
+              <div className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-azul-950 text-white transition-transform duration-300 group-hover:translate-x-2 group-hover:bg-institucional-500">
+                <ArrowRight className="h-5 w-5" strokeWidth={2.5} />
+              </div>
+            </Link>
+          </AnimacionEntrada>
+        )}
 
         <div className="relative z-10 mx-auto mt-12 max-w-4xl px-4 sm:px-8 text-center">
           <div className="border-t border-gray-200 pt-10 flex flex-col items-center justify-center gap-6">
             <p className="text-sm text-gray-500">
-              © {new Date().getFullYear()} {siteConfig.contact.name}
+              © {currentYear} {siteConfig.contact.name}
             </p>
           </div>
         </div>

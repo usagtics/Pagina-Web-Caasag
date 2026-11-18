@@ -12,6 +12,9 @@
   --color-institucional-800: #5f5938;
   --color-institucional-900: #4f4a31;
   --color-institucional-950: #2d2a1c;
+  --color-dorado: #a3995d;
+  --color-dorado-claro: #c2b985;
+  --color-dorado-oscuro: #766e43;
 
   --color-azul-50: #eef2f8;
   --color-azul-100: #d6dfec;
@@ -148,9 +151,6 @@ body {
 .animate-ken-burns {
   animation: kenBurns 8s ease-out forwards;
 }
-/* =========================================
-   ANIMACIONES GLOBALES
-   ========================================= */
 
 @keyframes fadeUp {
   from {
