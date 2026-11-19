@@ -20,3 +20,4 @@ export { default as EventosDetalle } from "./components/home/EventosDetalle";
 export { Contacto } from "./components/home/Contacto";
 export { Convocatorias } from "./components/home/convocatorias";
 export { ListaEventos } from "./components/home/ListaEventos";
+export { Promociones } from "./components/home/promociones/Promociones";

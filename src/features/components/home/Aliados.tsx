@@ -24,7 +24,7 @@ export function Aliados() {
         </p>
       </div>
 
-      <div className="marquee-container relative flex w-full flex-col gap-6">
+      <div className="marquee-container relative flex w-full flex-col gap-8">
         <div className="pointer-events-none absolute left-0 top-0 z-20 h-full w-24 bg-gradient-to-r from-[#F8F9FA] to-transparent sm:w-48" />
         <div className="pointer-events-none absolute right-0 top-0 z-20 h-full w-24 bg-gradient-to-l from-[#F8F9FA] to-transparent sm:w-48" />
 

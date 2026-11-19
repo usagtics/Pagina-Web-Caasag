@@ -1,3 +1,11 @@
+import {
+  GraduationCap,
+  Users,
+  MessagesSquare,
+  FileText,
+  Monitor,
+} from "lucide-react";
+
 export const girosProveedores = [
   "Uniformes",
   "Seguros",
@@ -38,22 +46,64 @@ export const valoresAgremiacion = [
 export const beneficiosAgremiacion = [
   {
     titulo: "Innovación educativa y tecnológica",
-    icon: "M12 14l9-5-9-5-9 5 9 5z M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222",
+    icon: GraduationCap,
   },
   {
     titulo: "Vinculación académica interinstitucional",
-    icon: "M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z",
+    icon: Users,
   },
   {
     titulo: "Consultoría y asesoría educativa",
-    icon: "M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z",
+    icon: MessagesSquare,
   },
   {
     titulo: "Actualización permanente",
-    icon: "M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z",
+    icon: FileText,
   },
   {
     titulo: "Plataformas virtuales",
-    icon: "M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z",
+    icon: Monitor,
+  },
+];
+
+export const beneficiosDoctorado = [
+  "Reconocimiento y prestigio internacional",
+  "Proyección y difusión de su perfil profesional",
+  "Participación en ceremonias y eventos académicos",
+  "Red internacional de doctores y alianzas institucionales",
+  "Mayor visibilidad de sus logros y trayectorias",
+  "Participación en Webinars y Grupos Virtuales",
+];
+
+export const criteriosPremioExcelencia = [
+  "Calidad y fortalecimiento académico",
+  "Infraestructura, equipamiento y modernización",
+  "Innovación y transformación tecnológica",
+  "Investigación científica",
+  "Proyectos de innovación y vinculación",
+  "Responsabilidad social y sustentabilidad",
+  "Formación integral de estudiantes",
+  "Resultados y buenas prácticas institucionales",
+];
+
+export const reconocimientosPremioExcelencia = [
+  {
+    id: "galardon",
+    texto:
+      "Reconocimiento oficial con galardón conmemorativo y constancia oficial",
+  },
+  {
+    id: "difusion",
+    texto:
+      "Difusión institucional en medios oficiales de CAASAG (prensa, creadores de contenido y canales de difusión a nivel nacional)",
+  },
+  {
+    id: "foto",
+    texto: "Fotografía conmemorativa al recibir el premio",
+  },
+  {
+    id: "premiacion",
+    texto:
+      "Premiación durante la Cena del Segundo Aniversario de CAASAG (27 de noviembre de 2026, León, Guanajuato)",
   },
 ];

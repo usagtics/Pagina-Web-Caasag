@@ -1,6 +1,7 @@
 import {
   Hero,
   Aliados,
+  Promociones,
   MisionVision,
   Nosotros,
   Pilares,
@@ -14,6 +15,7 @@ export default function HomePage() {
     <>
       <Hero />
       <Aliados />
+      <Promociones />
 
       <div className="relative overflow-hidden bg-azul-50">
         <MisionVision />

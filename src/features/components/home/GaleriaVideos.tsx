@@ -6,11 +6,16 @@ interface GaleriaVideosProps {
 export function GaleriaVideos({ videos, poster }: GaleriaVideosProps) {
   if (!videos || videos.length === 0) return null;
 
+  const gridCols =
+    videos.length >= 3
+      ? "md:grid-cols-2 lg:grid-cols-3"
+      : videos.length === 2
+        ? "md:grid-cols-2"
+        : "grid-cols-1 max-w-4xl";
+
   return (
     <div
-      className={`mx-auto mb-16 w-full max-w-[1400px] px-4 sm:px-8 grid gap-6 ${
-        videos.length > 1 ? "md:grid-cols-2" : "grid-cols-1 max-w-4xl"
-      }`}
+      className={`mx-auto mb-16 w-full max-w-[1400px] px-4 sm:px-8 grid gap-6 items-center ${gridCols}`}
     >
       {videos.map((vid, idx) => (
         <div
@@ -19,7 +24,8 @@ export function GaleriaVideos({ videos, poster }: GaleriaVideosProps) {
         >
           <video
             controls
-            className="aspect-video w-full object-cover"
+            preload="metadata"
+            className="w-full max-h-[540px] object-contain"
             poster={poster}
           >
             <source src={vid} type="video/mp4" />

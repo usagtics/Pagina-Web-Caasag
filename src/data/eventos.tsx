@@ -317,6 +317,55 @@ export const eventos: Evento[] = [
       "/reiyukai/foto4-reiyukai.jpg",
     ],
   },
+  {
+    slug: "quinta-asamblea",
+    fecha: "27 Noviembre, 2026",
+    categoria: "Eventos",
+    titulo: "Quinta Asamblea Ordinaria",
+    descripcion:
+      "CAASAG llevará a cabo su Quinta Asamblea en su Casa Corporativa, en León, Guanajuato, reuniendo a sus integrantes en un espacio de diálogo, colaboración y fortalecimiento institucional.",
+    ubicacion: "Corporativo CAASAG, León, Guanajuato",
+    imagen: "/asamblea5/5asamblea.jpg",
+    contenido: {
+      subtitulo:
+        "Un encuentro para fortalecer los lazos institucionales, compartir objetivos y continuar impulsando la colaboración académica.",
+      parrafos: [
+        "El próximo 27 de noviembre de 2026, el Colegiado y Alianzas Académicas San Andrés de Guanajuato (CAASAG) celebrará su Quinta Asamblea en su Corporativo, ubicado en la ciudad de León, Guanajuato.",
+        "Esta reunión representa una oportunidad para generar un espacio de encuentro entre los integrantes de CAASAG, compartir avances, dialogar sobre temas de interés institucional y dar continuidad a las acciones que fortalecen el trabajo colaborativo.",
+        "A través de esta Quinta Asamblea, CAASAG reafirma su compromiso con la integración, la participación y el fortalecimiento de alianzas que contribuyan al desarrollo académico e institucional.",
+      ],
+    },
+    galeria: [],
+    videos: ["/video1-caasag.mp4", "/video2-caasag.mp4", "/video3-caasag.mp4"],
+  },
+
+  {
+    slug: "doctorado-honoris-causa-segunda-asamblea",
+    fecha: "2025",
+    categoria: "Eventos",
+    titulo: "Entrega del Doctorado Honoris Causa",
+    descripcion:
+      "Durante la Segunda Asamblea del Colegiado y Alianzas Académicas San Andrés de Guanajuato se llevó a cabo la entrega del Doctorado Honoris Causa, un reconocimiento a la entrega, liderazgo y compromiso con la educación.",
+    ubicacion: "Puerto Vallarta, Jalisco",
+    imagen: "/asamblea2/honoriscausa/foto3-honoris.jpg",
+    contenido: {
+      subtitulo:
+        "Un reconocimiento a la entrega, el liderazgo y el compromiso con la transformación educativa.",
+      parrafos: [
+        "En el marco de la Segunda Asamblea del Colegiado y Alianzas Académicas San Andrés de Guanajuato (CAASAG), se llevó a cabo la ceremonia de entrega del Doctorado Honoris Causa, uno de los momentos más significativos del encuentro.",
+        "Esta distinción reconoció la entrega, el liderazgo y el firme compromiso con la educación, destacando trayectorias que impulsan la excelencia académica y generan un impacto positivo en la formación de nuevas generaciones.",
+        "Con este reconocimiento, CAASAG reafirma su propósito de visibilizar y respaldar a quienes fortalecen el ámbito educativo a través de su vocación, trabajo constante y visión de futuro.",
+      ],
+    },
+    galeria: [
+      "/asamblea2/honoriscausa/foto1-honoris.jpg",
+      "/asamblea2/honoriscausa/foto2-honoris.jpg",
+      "/asamblea2/honoriscausa/foto3-honoris.jpg",
+      "/asamblea2/honoriscausa/foto4-honoris.jpg",
+      "/asamblea2/honoriscausa/foto5-honoris.jpg",
+      "/asamblea2/honoriscausa/foto6-honoris.jpg",
+    ],
+  },
 ];
 
 export function getEventoBySlug(slug: string): Evento | undefined {

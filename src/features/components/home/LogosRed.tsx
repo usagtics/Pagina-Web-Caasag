@@ -19,9 +19,9 @@ export function LogosRed() {
       id="directorio"
       className="relative flex min-h-[80vh] w-full items-center justify-center overflow-hidden bg-slate-50 py-24"
     >
-      <div className="absolute top-1/2 left-1/2 h-[40rem] w-[50rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-institucional-500/5 blur-3xl pointer-events-none z-0" />
+      <div className="pointer-events-none absolute left-1/2 top-1/2 z-0 h-[40rem] w-[50rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-institucional-500/5 blur-3xl" />
 
-      <div className="absolute inset-0 z-0 flex flex-col justify-center gap-6 opacity-60 pointer-events-none">
+      <div className="pointer-events-none absolute inset-0 z-0 flex flex-col justify-center gap-8 opacity-60">
         <div className="absolute inset-x-0 top-0 z-10 h-32 bg-gradient-to-b from-slate-50 to-transparent" />
         <div className="absolute inset-x-0 bottom-0 z-10 h-32 bg-gradient-to-t from-slate-50 to-transparent" />
 
@@ -31,7 +31,7 @@ export function LogosRed() {
         <CarruselLogos logos={fila4} direccion="right" duracion="55s" />
       </div>
 
-      <div className="relative z-20 w-full py-16 bg-gradient-to-r from-transparent via-white/80 to-transparent backdrop-blur-xs">
+      <div className="relative z-20 w-full bg-gradient-to-r from-transparent via-white/80 to-transparent py-16 backdrop-blur-xs">
         <div className="mx-auto flex max-w-4xl flex-col items-center px-4 text-center">
           <AnimacionEntrada direccion="arriba" retraso={0.1}>
             <EtiquetaSeccion

@@ -20,12 +20,13 @@ export function CarruselLogos({
     >
       {logosDuplicados.map((logo, index) => (
         <div key={`${direccion}-${index}`} className="mx-4 shrink-0">
-          <div className="relative flex h-24 w-48 items-center justify-center rounded-2xl border border-neutral-200/50 bg-white p-4 shadow-sm sm:h-28 sm:w-56">
+          <div className="relative flex h-32 w-64 items-center justify-center rounded-2xl border border-neutral-200/50 bg-white p-2 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md sm:h-36 sm:w-72">
             <Image
               src={logo}
               alt="Logo Institución Agremiada"
               fill
-              className="object-contain p-4"
+              sizes="(max-width: 640px) 256px, 288px"
+              className="object-contain p-2 sm:p-3"
             />
           </div>
         </div>
