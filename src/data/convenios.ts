@@ -86,11 +86,11 @@ export const conveniosData: Convenio[] = [
       "Colaboración institucional con Reiyukai de México A.C., orientada a fortalecer los vínculos con organizaciones de la sociedad civil y promover iniciativas de participación, solidaridad y compromiso social.",
   },
   {
-    id: "Compax",
-    institucion: "Compax",
-    logoUrl: "/convenios/compax.png",
-    tipo: "Tecnología",
+    id: "Alenia",
+    institucion: "ALENIA",
+    logoUrl: "/convenios/alenia.png",
+    tipo: "Vinculación empresarial",
     descripcion:
-      "Vinculación con el sector tecnológico para impulsar la colaboración institucional y facilitar el acceso a herramientas y recursos informáticos que contribuyan al fortalecimiento de las actividades académicas y administrativas.",
+      "Alianza estratégica orientada a fortalecer la colaboración institucional, generar oportunidades de vinculación y desarrollar iniciativas conjuntas que impulsen el crecimiento, la innovación y el desarrollo académico y profesional.",
   },
 ];

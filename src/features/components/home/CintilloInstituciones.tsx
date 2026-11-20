@@ -24,7 +24,7 @@ export function CintilloInstituciones() {
 
           <div className="flex shrink-0 flex-col items-center gap-6 sm:flex-row lg:flex-col lg:items-end lg:gap-8">
             <div className="text-center lg:text-right">
-              <p className="text-4xl font-black text-white sm:text-5xl">+80</p>
+              <p className="text-4xl font-black text-white sm:text-5xl">+150</p>
               <p className="mt-1 text-xs font-bold uppercase tracking-widest text-azul-100/60">
                 Instituciones Aliadas
               </p>

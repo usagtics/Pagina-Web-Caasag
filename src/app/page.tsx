@@ -15,14 +15,12 @@ export default function HomePage() {
     <>
       <Hero />
       <Aliados />
-      <Promociones />
-
+      <MisionVision />
       <div className="relative overflow-hidden bg-azul-50">
-        <MisionVision />
         <Nosotros />
       </div>
-
       <Pilares />
+      <Promociones />
       <Noticias />
       <CINTA />
       <Testimonios />
